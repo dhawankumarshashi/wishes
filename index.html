@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Palak ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    overflow:hidden;
+}
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    font-size:22px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+
+.slide{
+    display:none;
+    width:560px;
+    max-width:92%;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+    animation:fade .7s;
+    z-index:2;
+}
+
+.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.photo{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid #ff4d6d;
+    margin-bottom:20px;
+}
+
+h1,h2{
+    color:#ff4d6d;
+    margin-bottom:15px;
+}
+
+p{
+    color:#444;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+button{
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    margin:5px;
+    font-size:15px;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.typewriter{
+    color:#ff4d6d;
+    font-size:28px;
+    font-weight:bold;
+    min-height:40px;
+    margin-bottom:15px;
+}
+
+.music-btn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:999;
+}
+
+.final{
+    font-size:20px;
+    color:#ff4d6d;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Slide 1 -->
+<div class="slide active" id="slide1">
+    <img src="palak.jpeg" class="photo" alt="Palak">
+
+    <div class="typewriter" id="typewriter"></div>
+
+    <p>
+        Someone made a little surprise for you... ❤️
+    </p>
+
+    <button onclick="showSlide(2)">Next ➜</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide" id="slide2">
+    <h1>🌸 Dear Palak</h1>
+
+    <p>
+        Some people become special without even trying.
+        <br><br>
+        You are one of them. ✨
+    </p>
+
+    <button onclick="showSlide(1)">⬅ Back</button>
+    <button onclick="showSlide(3)">Next ➜</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide" id="slide3">
+    <h1>💖 Little Things</h1>
+
+    <p>
+        ❤️ Your smile<br>
+        ❤️ Your vibe<br>
+        ❤️ Your kindness<br>
+        ❤️ The way you talk<br>
+        ❤️ Just being you
+    </p>
+
+    <button onclick="showSlide(2)">⬅ Back</button>
+    <button onclick="showSlide(4)">Next ➜</button>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide" id="slide4">
+    <h1>✨ Random Fact</h1>
+
+    <p>
+        Seeing your name somehow makes the day feel better.
+    </p>
+
+    <button onclick="showSlide(3)">⬅ Back</button>
+    <button onclick="showSlide(5)">Next ➜</button>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide" id="slide5">
+    <h1>🌷 Reminder</h1>
+
+    <p>
+        You don't need to be perfect.
+        <br><br>
+        Being yourself is already enough. ❤️
+    </p>
+
+    <button onclick="showSlide(4)">⬅ Back</button>
+    <button onclick="showSlide(6)">Next ➜</button>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide" id="slide6">
+    <h1>❤️ Final Message ❤️</h1>
+
+    <p class="final">
+        Ho Na Jaye Pyar Tumse... ❤️
+        <br><br>
+        Stay happy, keep smiling,
+        and never stop being yourself. ✨
+    </p>
+
+    <h2>For Palak ❤️</h2>
+
+    <p style="font-size:14px;">
+        Made with ❤️ by Dhawan
+    </p>
+
+    <button onclick="showSlide(5)">⬅ Back</button>
+</div>
+
+<script>
+function showSlide(num){
+    document.querySelectorAll('.slide')
+    .forEach(slide=>slide.classList.remove('active'));
+
+    document.getElementById('slide'+num)
+    .classList.add('active');
+}
+
+function toggleMusic(){
+    const music = document.getElementById('bgMusic');
+
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+}
+
+const text = "Hi Palak ❤️";
+let i = 0;
+
+function typeWriter(){
+    if(i < text.length){
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter,120);
+    }
+}
+typeWriter();
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (15 + Math.random()*20) + "px";
+
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>
