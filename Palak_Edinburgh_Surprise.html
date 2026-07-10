@@ -1,0 +1,458 @@
+<<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>For Palak ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+overflow:hidden;
+
+background:#020614;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:white;
+
+}
+
+canvas{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+z-index:-10;
+
+}
+
+#moon{
+
+position:absolute;
+
+right:8%;
+
+top:8%;
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:
+
+0 0 20px white,
+
+0 0 40px white,
+
+0 0 70px white;
+
+animation:moon 8s ease-in-out infinite;
+
+}
+
+@keyframes moon{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(15px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+.container{
+
+width:90%;
+
+max-width:800px;
+
+padding:45px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border-radius:25px;
+
+box-shadow:0 0 40px rgba(255,255,255,.15);
+
+text-align:center;
+
+animation:fade 2s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+h1{
+
+font-size:45px;
+
+margin-bottom:20px;
+
+background:linear-gradient(to right,#ff9a9e,#fad0c4);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+#typewriter{
+
+font-size:22px;
+
+line-height:1.8;
+
+min-height:240px;
+
+white-space:pre-line;
+
+}
+
+button{
+
+margin-top:25px;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:18px;
+
+cursor:pointer;
+
+background:white;
+
+transition:.4s;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+.heart{
+
+position:absolute;
+
+font-size:24px;
+
+animation:heart 7s linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes heart{
+
+0%{
+
+transform:translateY(0) scale(1);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(2);
+
+opacity:0;
+
+}
+
+}
+
+#airplane{
+
+position:absolute;
+
+font-size:40px;
+
+left:-100px;
+
+top:120px;
+
+animation:plane 16s linear infinite;
+
+}
+
+@keyframes plane{
+
+0%{
+
+left:-150px;
+
+top:120px;
+
+}
+
+100%{
+
+left:120%;
+
+top:60px;
+
+}
+
+}
+
+#castle{
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:160px;
+
+background:linear-gradient(to top,#000,#1110);
+
+opacity:.35;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<div id="moon"></div>
+
+<div id="airplane">
+
+✈️
+
+</div>
+
+<div id="castle"></div>
+
+<div class="container">
+
+<h1>
+
+For Palak ❤️
+
+</h1>
+
+<div id="typewriter">
+
+</div>
+
+<button onclick="nextPage()">
+
+Continue ❤️
+
+</button>
+
+</div>
+<script>
+
+const messages = [
+
+`Hey Miss Attitude... 😌
+
+Abhi jitna pareshan karna hai kar lo...
+
+Jitna ignore karna hai kar lo...
+
+Jitne nakhre dikhane hain dikha lo...
+
+Because one day...
+
+I'll take you to Edinburgh,
+
+and we'll create memories
+
+we'll never forget. ✈️❤️`,
+
+`Palak...
+
+Ek baat sach bolun?
+
+Kabhi kabhi lagta hai...
+
+Tum jaanti ho ki
+
+main tumhe kitna pasand karta hoon...
+
+Isliye tum itne confidence se
+
+mujhe tang karti ho. 😊
+
+Aur sach kahun...
+
+Mujhe tumhare nakhre bhi pasand hain. ❤️`,
+
+`I like you more than I can explain...
+
+Har baar main hi pehle message karta hoon...
+
+Har baar wait karta hoon...
+
+Not because I'm weak...
+
+But because...
+
+You're genuinely special to me. 💖`,
+
+`Ek din...
+
+Hum Edinburgh ki beautiful streets par walk karenge...
+
+Coffee tumhare haath me hogi ☕
+
+Aur main sirf itna bolunga...
+
+"See...? I told you we'd make it here." ❤️`,
+
+`Take care Palak 🌸
+
+Stay Happy...
+
+Keep Smiling...
+
+Aur yaad rakhna...
+
+You'll always be someone
+
+very special to me.
+
+❤️
+
+— Dhawan`
+
+];
+
+let page = 0;
+
+const speed = 35;
+
+function typeWriter(text){
+
+let area = document.getElementById("typewriter");
+
+area.innerHTML="";
+
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+area.innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typing,speed);
+
+}
+
+}
+
+typing();
+
+}
+
+function nextPage(){
+
+typeWriter(messages[page]);
+
+page++;
+
+if(page>=messages.length){
+
+page=0;
+
+}
+
+}
+
+nextPage();
+
+</script>
