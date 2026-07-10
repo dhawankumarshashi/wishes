@@ -1,0 +1,79 @@
+!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>For Palak ❤️</title>
+<style>
+body{margin:0;background:linear-gradient(180deg,#06132a,#111827);font-family:Segoe UI;color:#fff;overflow:hidden}
+.star{position:fixed;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+.wrap{display:flex;align-items:center;justify-content:center;height:100vh}
+.card{width:min(92%,760px);background:rgba(255,255,255,.08);backdrop-filter:blur(12px);padding:32px;border-radius:22px;text-align:center}
+#msg{white-space:pre-line;min-height:260px;line-height:1.8;font-size:20px}
+button{padding:12px 26px;border-radius:30px;border:none;cursor:pointer}
+.heart{position:fixed;font-size:22px;animation:fly 5s linear forwards}
+@keyframes fly{to{transform:translateY(-120vh);opacity:0}}
+</style></head><body>
+<script>
+for(let i=0;i<180;i++){let s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';document.body.appendChild(s);}
+</script>
+<div class='wrap'><div class='card'><h1>💖 Hey Palak 💖</h1><div id='msg'></div><button onclick='next()'>Continue ❤️</button></div></div>
+<script>
+const p=[
+`Hey Miss Attitude... 😌
+
+Abhi jitna pareshan karna hai kar lo...
+Jitna ignore karna hai kar lo...
+Jitne nakhre dikhane hain dikha lo...
+
+Because one day...
+
+I'll take you to Edinburgh,
+and we'll create memories
+we'll never forget. ✈️🇬🇧❤️
+
+Us din bas ek smile chahiye hogi... 😊`,
+`Ek baat sach bolun?
+
+Kabhi kabhi lagta hai...
+
+Tum jaanti ho ki
+main tumhe kitna pasand karta hoon...
+
+Isliye tum itne confidence se
+mujhe tang karti ho. 😄
+
+Aur sach kahun...
+
+Mujhe tumhare nakhre bhi pasand hain. ❤️`,
+`Palak...
+
+I like you more than I can explain.
+
+Main har baar wait karta hoon...
+
+Har baar smile kar deta hoon...
+
+Because you're genuinely special to me. 💖`,
+`Ek din...
+
+Hum Edinburgh ki beautiful streets par walk karenge...
+
+Coffee tumhare haath me hogi... ☕
+
+Aur main sirf itna bolunga...
+
+"See...? I told you we'd make it here." ❤️`,
+`Take care, Palak. 🌸
+
+Stay happy.
+Keep smiling.
+
+And remember...
+
+You'll always be someone
+very special to me.
+
+— Dhawan ❤️`];
+let i=0;
+function type(t){let e=document.getElementById('msg');e.textContent='';let n=0;(function w(){if(n<t.length){e.textContent+=t[n++];setTimeout(w,24)}})()}
+function hearts(){for(let k=0;k<25;k++){let h=document.createElement('div');h.className='heart';h.textContent='❤️';h.style.left=Math.random()*100+'vw';h.style.bottom='-10px';document.body.appendChild(h);setTimeout(()=>h.remove(),5000);}}
+function next(){type(p[i]);if(i===p.length-1)hearts();i=(i+1)%p.length;}
+next();
+</script></body></html>
